@@ -2,7 +2,7 @@ const nodemailer = require('nodemailer');
 
 const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
-    port: 587, // SMTP PORT
+    port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
         user: process.env.SMTP_USER,
@@ -44,8 +44,6 @@ exports.handler = (event, context, callback) => {
 function titleCase(str) {
     const splitStr = str.toLowerCase().split(' ');
     for (let i = 0; i < splitStr.length; i++) {
-        // You do not need to check if i is larger than splitStr length, as your for does that for you
-        // Assign it back to the array
         splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
     }
     // return the joined string
