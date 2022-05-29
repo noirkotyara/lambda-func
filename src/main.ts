@@ -24,4 +24,4 @@ import awsServerlessExpressMiddleware from 'aws-serverless-express/middleware';
 
     server.use('/health', NotificationsRouter())
 
-module.exports = { mainServer: server };
+export const mainServer = server;
