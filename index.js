@@ -31,8 +31,8 @@ exports.handler = (event, context, callback) => {
 
 
     let mailOptions = {
-        from: 'FROM.EMAIL.ADDRESS',
-        to: 'TO.EMAIL.ADDRESS',
+        from: 'noirkotyara@gmail.com',
+        to: 'noirkotyara@gmail.com',
         subject: 'SUBJECT',
         html: body_txt
     };
