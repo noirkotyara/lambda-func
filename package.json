@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest --watchAll --collectCoverage",
     "dev:build": "tsc",
-    "dev:serve": "nodemon index-local.ts",
+    "dev:serve": "nodemon index.js",
     "deploy": "npm run clean && npm run build && aws lambda update-function-code --function-name notifications-service --zip-file fileb://bundle.zip --publish",
     "clean": "rm bundle.zip",
     "build": "zip -r bundle.zip node_modules index.js"

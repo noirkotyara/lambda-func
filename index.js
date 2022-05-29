@@ -11,6 +11,16 @@ const transporter = nodemailer.createTransport({
 });
 
 exports.handler = (event, context, callback) => {
+    console.log('LOGS createTransport', {
+        host: process.env.SMTP_HOST,
+        port: 587,
+        secure: false, // true for 465, false for other ports
+        auth: {
+            user: process.env.SMTP_USER,
+            pass: process.env.SMTP_PASS
+        }
+    })
+
     const done = (err, res) => callback(null, {
         statusCode: err ? '400' : '200',
         body: err ? err.message : JSON.stringify(res),
