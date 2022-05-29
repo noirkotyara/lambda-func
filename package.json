@@ -9,7 +9,7 @@
     "dev:serve": "nodemon index-local.ts",
     "deploy": "npm run clean && npm run build && aws lambda update-function-code --function-name notifications-service --zip-file fileb://bundle.zip --publish",
     "clean": "rm bundle.zip",
-    "build": "zip -r bundle.zip node_modules index.ts src/main.js"
+    "build": "zip -r bundle.zip node_modules index.ts src/*"
   },
   "keywords": [],
   "author": "",
