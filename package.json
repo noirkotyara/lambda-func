@@ -2,14 +2,14 @@
   "name": "email-service",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ts",
+  "main": "index.js",
   "scripts": {
     "test": "jest --watchAll --collectCoverage",
     "dev:build": "tsc",
     "dev:serve": "nodemon index-local.ts",
     "deploy": "npm run clean && npm run build && aws lambda update-function-code --function-name notifications-service --zip-file fileb://bundle.zip --publish",
     "clean": "rm bundle.zip",
-    "build": "zip -r bundle.zip node_modules index.ts src/*"
+    "build": "zip -r bundle.zip node_modules index.js"
   },
   "keywords": [],
   "author": "",
@@ -23,16 +23,12 @@
     "@types/supertest": "^2.0.11",
     "jest": "^27.5.1",
     "nodemon": "^1.18.4",
-    "supertest": "^6.2.2",
-    "ts-jest": "^27.1.3",
-    "ts-node": "^10.7.0",
-    "typescript": "^4.6.2"
+    "supertest": "^6.2.2"
   },
   "dependencies": {
     "aws-sdk": "^2.1145.0",
     "aws-serverless-express": "^3.4.0",
     "cors": "^2.8.5",
-    "express": "^4.18.1",
-    "uuid": "^8.3.2"
+    "express": "^4.18.1"
   }
 }
