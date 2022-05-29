@@ -21,17 +21,15 @@ exports.handler = (event, context, callback) => {
         }
     })
 
-    const done = (err, res) => {
-        return res.send({
-            statusCode: err ? '400' : '200',
-            body: err ? err.message : JSON.stringify(res),
-            headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'POST'
-            },
-        })
-    };
+    const done = (err) => callback(null, {
+        statusCode: err ? '400' : '200',
+        body: err ? err.message : 'No errorssss',
+        headers: {
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'POST'
+        },
+    });
 
     let mailOptions =  {
         from: 'noirkotyara@gmail.com', // sender address
@@ -41,5 +39,5 @@ exports.handler = (event, context, callback) => {
         html: '<b>Hello world</b>' // html body
     };
 
-    transporter.sendMail(mailOptions, done);
+    transporter.sendMail(mailOptions, done(null));
 };
