@@ -21,7 +21,11 @@ exports.handler = (event, context, callback) => {
         }
     })
 
-    const done = (err) => callback(null, {
+    console.log('LOGS EVENT', event)
+    console.log('LOGS CONTEXT', context)
+    console.log('LOGS CALLBACK', callback)
+
+    const done = () => callback(null, {
         statusCode: err ? '400' : '200',
         body: err ? err.message : 'No errorssss',
         headers: {
@@ -39,5 +43,5 @@ exports.handler = (event, context, callback) => {
         html: '<b>Hello world</b>' // html body
     };
 
-    transporter.sendMail(mailOptions, done(null));
+    transporter.sendMail(mailOptions, done);
 };
